@@ -1,0 +1,3633 @@
+
+*{
+    margin: 0;
+}
+
+
+:root{
+    --orange:#d97706;
+    --dark:#2b1a10;
+    --white:#fff;
+}
+
+/* Hero Container Configuration */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 80vh; /* Adjust height as needed */
+    overflow: hidden;
+    background-color: #000;
+}
+
+/* Slider Wrapper */
+.hero-slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Individual Slides Setup */
+.slider-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+    z-index: 1;
+}
+
+/* Active Slide Toggle */
+.slider-item.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+/* Slide Background Images */
+.slider-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Dark Tint Overlay */
+.slider-item .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45); /* Darkens image for text readability */
+    z-index: 3;
+}
+
+/* Text and Content Positioning */
+.slider-caption {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    color: #ffffff;
+    z-index: 4;
+    max-width: 600px;
+}
+
+.slider-caption span {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ffbe76; /* Accent color */
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.slider-caption h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.slider-caption p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #f1f2f6;
+}
+
+/* Hero Action Buttons */
+.hero-btns {
+    display: flex;
+    gap: 15px;
+}
+
+.hero-btns .btn, .hero-btns .btn2 {
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.hero-btns .btn {
+    background-color: #ffbe76;
+    color: #1e1e24;
+}
+
+.hero-btns .btn:hover {
+    background-color: #f0a34f;
+}
+
+.hero-btns .btn2 {
+    border: 2px solid #ffffff;
+    color: #ffffff;
+}
+
+.hero-btns .btn2:hover {
+    background-color: #ffffff;
+    color: #1e1e24;
+}
+
+/* Left & Right Arrow Controls */
+.hero .controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 10;
+    pointer-events: none; /* Allows clicking through the row container */
+}
+
+.hero .controls button {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    padding: 15px 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background 0.3s;
+    pointer-events: auto; /* Re-enables clicking on the buttons */
+}
+
+.hero .controls button:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .slider-caption {
+        left: 5%;
+        right: 5%;
+        text-align: center;
+    }
+    .slider-caption h1 {
+        font-size: 2.2rem;
+    }
+    .hero-btns {
+        justify-content: center;
+    }
+    .hero .controls {
+        display: none; /* Hide arrows on mobile for clean touch interface */
+    }
+}
+
+/* dots */
+
+.dots{
+    position:absolute;
+    bottom:40px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:12px;
+}
+
+.dots span{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:#bbb;
+    cursor:pointer;
+}
+
+.dots span.active{
+    background:var(--orange);
+}
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(50px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+/* --- The Pagination Dot Container (Targeting your existing .dot class) --- */
+:root{
+    --orange:#d97a2b;
+    --cream:#fff8f0;
+    --light:#fefcf8;
+    --dark:#4a2c1d;
+    --gray:#777;
+}
+
+/* ===========================
+   SERVICES SECTION
+=========================== */
+.dot{
+    background: linear-gradient(180deg,#fff,#fff8f2);
+    padding:70px 8%;
+}
+
+.services .row{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.services .box{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    background:var(--light);
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    transition:.4s;
+    border-bottom:4px solid transparent;
+}
+
+.services .box:hover{
+    transform:translateY(-10px);
+    border-color:var(--orange);
+    box-shadow:0 18px 40px rgba(217,122,43,.25);
+}
+
+.services .box img{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid var(--orange);
+}
+
+.services .box h1{
+    font-size:1.3rem;
+    color:var(--dark);
+    margin-bottom:10px;
+    text-transform:capitalize;
+}
+
+.services .box p{
+    color:var(--gray);
+    line-height:1.7;
+}
+
+
+/* ===========================
+   STORY SECTION
+=========================== */
+
+.story{
+    background:var(--cream);
+    padding:90px 8%;
+}
+
+.ours{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    gap:60px;
+    align-items:center;
+}
+
+.boxx span{
+    display:inline-block;
+    color:var(--orange);
+    font-weight:bold;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    margin-bottom:10px;
+    position:relative;
+}
+
+.boxx span::after{
+    content:"";
+    position:absolute;
+    left:110%;
+    top:50%;
+    width:70px;
+    height:3px;
+    background:var(--orange);
+}
+
+.boxx h1{
+    font-size:3rem;
+    color:var(--dark);
+    line-height:1.2;
+    margin:20px 0;
+    text-transform:capitalize;
+}
+
+.boxx p{
+    color:#666;
+    line-height:2;
+    margin-bottom:35px;
+    font-size:16px;
+}
+
+.story .box img{
+    width:100%;
+    border-radius:25px;
+    box-shadow:0 20px 45px rgba(0,0,0,.15);
+    transition:.5s;
+}
+
+.story .box img:hover{
+    transform:scale(1.05) rotate(1deg);
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+
+.btn{
+    display:inline-block;
+    background:var(--orange);
+    color:#fff;
+    padding:15px 38px;
+    border-radius:40px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.4s;
+    box-shadow:0 10px 25px rgba(217,122,43,.35);
+}
+
+.btn:hover{
+    background:#b95d12;
+    transform:translateY(-5px);
+    letter-spacing:1px;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:768px){
+
+    .boxx h1{
+        font-size:2.2rem;
+    }
+
+    .services .box{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .ours{
+        gap:40px;
+    }
+
+}
+
+:root{
+    --orange:#d97706;
+}
+
+.testimonial-fluid{
+
+    background:#fff8f2;
+    padding:100px 8%;
+    text-align:center;
+
+}
+
+.section-tag{
+
+    color:var(--orange);
+    letter-spacing:4px;
+    text-transform:uppercase;
+    font-weight:700;
+
+}
+
+.testimonial-fluid .title{
+
+    font-size:50px;
+    margin:15px 0 60px;
+
+}
+
+.testimonial-slider{
+
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    flex-wrap:wrap;
+
+}
+
+.testimonial-item{
+
+    width:360px;
+    background:white;
+    border-radius:25px;
+    padding:35px;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+    transition:.4s;
+
+}
+
+.testimonial-item:hover{
+
+    transform:translateY(-12px);
+
+}
+
+.customer-img{
+
+    width:110px;
+    height:110px;
+    margin:auto;
+    border-radius:50%;
+    overflow:hidden;
+    border:5px solid var(--orange);
+
+}
+
+.customer-img img{
+
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+}
+
+.stars{
+
+    color:gold;
+    font-size:22px;
+    margin:25px 0;
+
+}
+
+.testimonial-caption p{
+
+    color:#666;
+    line-height:1.9;
+    font-style:italic;
+
+}
+
+.testimonial-caption h3{
+
+    margin-top:25px;
+    color:#333;
+
+}
+
+.testimonial-caption span{
+
+    color:var(--orange);
+
+}
+
+.control{
+
+    margin-top:40px;
+
+}
+
+.control button{
+
+    width:55px;
+    height:55px;
+    border:none;
+    border-radius:50%;
+    margin:10px;
+    background:var(--orange);
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+    transition:.3s;
+
+}
+
+.control button:hover{
+
+    transform:scale(1.15);
+
+}
+/* --- Core Bakery Color Variables --- */
+:root {
+    --bakery-orange: #D9531E;   /* Signature burnt orange */
+    --bakery-dark: #231109;     /* Deep rich chocolate espresso */
+    --bakery-cream: #FFFBF7;    /* Soft buttercream warm white */
+    --bakery-accent: #FFA048;   /* Warm honey orange accent */
+    --text-light: rgba(255, 255, 255, 0.85);
+}
+
+/* --- Banner Main Container Layout --- */
+.discover {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0;
+    display: flex;
+    align-items: stretch; /* Forces text side and image side to match heights perfectly */
+    background: linear-gradient(145deg, var(--bakery-dark) 0%, #170a04 100%);
+    border-radius: 20px;
+    overflow: hidden; /* Clips the inner image to the curved corners */
+    box-shadow: 0 20px 45px rgba(35, 17, 9, 0.12);
+    position: relative;
+}
+
+/* --- Left Side: Text Offer Details --- */
+.discover .details {
+    flex: 1;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically centers the text content */
+    color: var(--bakery-cream);
+    z-index: 2;
+}
+
+/* "fresh beck" Title Formatting */
+.discover .details .title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+    margin: 0 0 8px 0;
+    line-height: 1.1;
+}
+
+/* "buy now and save 30% off" Highlight Tag */
+.discover .details span {
+    display: inline-block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--bakery-accent);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+}
+
+/* Banner Paragraph Style */
+.discover .details p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-light);
+    margin: 0 0 35px 0;
+    max-width: 480px;
+}
+
+/* "discover now" Button Style */
+.discover .details a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start; /* Keeps the button from stretching too wide */
+    padding: 14px 36px;
+    background-color: var(--orange);
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    border-radius: 30px;
+    box-shadow: 0 6px 20px rgba(217, 83, 30, 0.3);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Button Hover State Animation */
+.discover .details a:hover {
+    background-color: #ffffff;
+    color: var(--bakery-orange);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
+}
+
+/* --- Right Side: Image Box Frame --- */
+.discover .img-box {
+    flex: 1;
+    position: relative;
+    border-left: 6px solid var(--bakery-orange); /* Elegant dividing strip */
+    overflow: hidden;
+}
+
+.discover .img-box img {
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    object-fit: cover; /* Prevents the bakery picture from distorting */
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Zoom effect on the image when hovering anywhere on the banner */
+.discover:hover .img-box img {
+    transform: scale(1.05);
+}
+
+/* ==========================================================================
+   MOBILE & TABLET VIEWPORT RESPONSIVENESS
+   ========================================================================== */
+@media (max-width: 992px) {
+    .discover {
+        flex-direction: column-reverse; /* Flips order so text displays below the photo on mobile */
+        margin: 40px 20px;
+    }
+    
+    .discover .img-box {
+        width: 100%;
+        height: 280px;
+        border-left: none;
+        border-bottom: 6px solid var(--bakery-orange);
+    }
+    
+    .discover .img-box img {
+        min-height: auto;
+    }
+    
+    .discover .details {
+        padding: 40px 30px;
+        text-align: center;
+    }
+    
+    .discover .details p {
+        margin: 0 auto 30px auto;
+    }
+    
+    .discover .details a {
+        align-self: center; /* Centers the button inside the mobile layout block */
+    }
+}
+
+@media (max-width: 480px) {
+    .discover .details .title {
+        font-size: 2rem;
+    }
+    .discover .details span {
+        font-size: 0.95rem;
+    }
+}
+
+
+/*==============================
+    POPULAR PRODUCTS
+===============================*/
+
+
+/* --- Core Bakery Theme Palette --- */
+:root {
+    --bakery-orange: #d97706;   /* Signature warm amber orange */
+    --bakery-dark: #3d2517;     /* Deep rich chocolate brown */
+    --bakery-cream: #fff8f2;    /* Soft warm cream background contrast */
+    --white: #ffffff;
+    --text-muted: #666666;      /* Soft elegant gray text color */
+}
+
+/* ==========================================================================
+   1. PREMIUM NEWSLETTER BOX LAYOUT
+   ========================================================================== */
+.newslatter {
+    max-width: 700px;
+    margin: 80px auto 40px auto;
+    padding: 60px 40px;
+    background: var(--white);
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 0 15px 45px rgba(61, 37, 23, 0.06);
+    border: 1px solid rgba(61, 37, 23, 0.03);
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Newsletter Title */
+.newslatter .title {
+    font-size: 2.2rem;
+    color: var(--bakery-dark);
+    margin: 0 0 12px 0;
+    text-transform: capitalize;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+/* Sub-headline Text Frame */
+.newslatter p {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: 520px;
+    margin: 0 auto 35px auto;
+}
+
+/* Native Input Field Alignment Structuring */
+.newslatter input[type="text"] {
+    width: 100%;
+    max-width: 480px;
+    padding: 16px 25px;
+    background-color: var(--bakery-cream);
+    border: 2px solid transparent;
+    border-radius: 50px;
+    font-size: 1rem;
+    color: var(--bakery-dark);
+    outline: none;
+    margin-bottom: 18px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+/* Smooth Input Focus Border Glow State */
+.newslatter input[type="text"]:focus {
+    background-color: var(--white);
+    border-color: var(--bakery-orange);
+    box-shadow: 0 8px 20px rgba(217, 119, 6, 0.1);
+}
+
+.newslatter input[type="text"]::placeholder {
+    color: #a49185;
+    opacity: 0.8;
+}
+
+/* Main Action Subscribe Button */
+.newslatter button {
+    display: inline-block;
+    padding: 16px 45px;
+    background-color: var(--bakery-orange);
+    color: var(--white);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(217, 119, 6, 0.35);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.newslatter button:hover {
+    background-color: var(--bakery-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(61, 37, 23, 0.25);
+}
+
+/* ==========================================================================
+   2. CLIENT/BRAND LOGO SHOWCASE ROW BAR
+   ========================================================================== */
+.client {
+    max-width: 1200px;
+    margin: 60px auto 100px auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Allows wrap adjustments cleanly across tablets */
+    box-sizing: border-box;
+}
+
+/* Logo Image Wrap Blocks */
+.client .box {
+    flex: 1;
+    min-width: 140px;
+    max-width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.client .box img {
+    max-width: 100%;
+    height: auto;
+    max-height: 75px;
+    object-fit: contain; /* Prevents logos from squishing */
+    filter: grayscale(100%) opacity(0.5); /* Unified minimal silver aesthetic appearance */
+    transition: all 0.4s ease;
+}
+
+/* Brightens and scales up partner logo files during hover events */
+.client .box:hover img {
+    filter: grayscale(0%) opacity(1);
+    transform: scale(1.08);
+}
+
+/* ==========================================================================
+   3. MOBILE SCREEN BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 768px) {
+    .newslatter {
+        margin: 40px 20px;
+        padding: 40px 25px;
+    }
+    .newslatter .title {
+        font-size: 1.8rem;
+    }
+    .newslatter p {
+        font-size: 0.95rem;
+    }
+    .client {
+        margin: 40px auto 60px auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Forms simple 2x2 grid layout balance on phone interfaces */
+        justify-items: center;
+        gap: 40px 20px;
+    }
+    .client .box {
+        max-width: 150px;
+    }
+}
+sup{
+    position: absolute;
+    top:11%;
+    background: #000;
+    color:#fff;
+    border-radius: 50%;
+    width:20px;
+    height: 20px;
+    line-height: 15px;
+    text-align: center;
+    padding: .1rem;
+}
+/* --- Admin Banner Framework --- */
+.banne {
+    width: 100%;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #c1b126 0%, #e8a90c 100%); /* Premium deep espresso brown */
+    text-align: center;
+    box-sizing: border-box;
+    
+    overflow: hidden;
+    background:linear-gradient(rgba(251, 255, 0, 0.894),
+
+    rgba(243, 155, 31, 0.901)),
+    url("img/pastry2.jpg") center/cover;
+    
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:60px 10%;
+}
+
+/* Main Dashboard Title */
+.banne h1 {
+    font-size: 2.2rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0 0 15px 0;
+    font-weight: 800;
+}
+
+/* Descriptive Text Box */
+.banne p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 650px;
+    margin: 0 auto 25px auto;
+}
+
+/* Breadcrumb Links Styling (home) */
+.banner a {
+    font-size: 0.95rem;
+    color: #d97706; /* Signature warm orange */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.banne a:hover {
+    color: #ffa048; /* Lighter honey orange accent */
+}
+
+/* Breadcrumb Divider & Current Location Text (/about us) */
+.banne span {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.5); /* Semi-transparent muted gray text */
+    text-transform: capitalize;
+    margin-left: 4px;
+}
+/*==================================
+        ABOUT US
+===================================*/
+
+:root{
+    --orange:#d97706;
+    --cream:#fff9f3;
+    --brown:#3b2418;
+    --light:#ffffff;
+    --gray:#777;
+}
+
+.about-us{
+    background:linear-gradient(180deg,#fff,#fff8f2);
+    padding:120px 8%;
+    overflow:hidden;
+    position:relative;
+}
+
+.about-us::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+    height:350px;
+
+    background:rgba(217,119,6,.08);
+
+    border-radius:50%;
+
+    top:-120px;
+    left:-120px;
+
+}
+
+.about-us::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:280px;
+    height:280px;
+
+    background:rgba(217,119,6,.06);
+
+    border-radius:50%;
+
+    bottom:-100px;
+    right:-100px;
+
+}
+
+.about-us .row{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:80px;
+
+    align-items:center;
+
+}
+
+/*=======================
+TEXT
+=======================*/
+
+.about-us .title span{
+
+    display:inline-block;
+
+    color:var(--orange);
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+}
+
+.about-us .title h1{
+
+    font-size:58px;
+
+    line-height:1.15;
+
+    color:var(--brown);
+
+    margin-bottom:30px;
+
+}
+
+.about-us p{
+
+    color:#666;
+
+    font-size:18px;
+
+    line-height:2;
+
+    margin-bottom:40px;
+
+}
+
+/*=======================
+BUTTON
+=======================*/
+
+.about-btn{
+
+    display:inline-block;
+
+    padding:16px 40px;
+
+    background:var(--orange);
+
+    color:white;
+
+    border-radius:40px;
+
+    text-decoration:none;
+
+    transition:.4s;
+
+    box-shadow:0 12px 30px rgba(217,119,6,.25);
+
+}
+
+.about-btn:hover{
+
+    transform:translateY(-6px);
+
+    background:#b86500;
+
+}
+
+/*=======================
+IMAGE
+=======================*/
+
+.about-us .img-box{
+
+    position:relative;
+
+}
+
+.about-us .img-box img{
+
+    width:100%;
+
+    border-radius:30px;
+
+    object-fit:cover;
+
+    transition:.7s;
+
+    box-shadow:0 25px 60px rgba(0,0,0,.18);
+
+}
+
+.about-us .img-box:hover img{
+
+    transform:scale(1.04);
+
+}
+
+/*=======================
+EXPERIENCE CARD
+=======================*/
+
+.about-us .img-box::after{
+
+    content:"25+ Years";
+
+    position:absolute;
+
+    bottom:30px;
+
+    left:-40px;
+
+    width:170px;
+
+    height:170px;
+
+    border-radius:50%;
+
+    background:var(--orange);
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    font-size:30px;
+
+    font-weight:700;
+
+    box-shadow:0 15px 40px rgba(217,119,6,.4);
+
+}
+
+/*=======================
+RESPONSIVE
+=======================*/
+
+@media(max-width:991px){
+
+.about-us .row{
+
+grid-template-columns:1fr;
+
+}
+
+.about-us .title h1{
+
+font-size:42px;
+
+}
+
+.about-us .img-box::after{
+
+left:20px;
+
+bottom:20px;
+
+width:120px;
+height:120px;
+font-size:22px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.about-us{
+
+padding:80px 25px;
+
+}
+
+.about-us .title h1{
+
+font-size:34px;
+
+}
+
+.about-us p{
+
+font-size:16px;
+
+}
+
+}
+.about-stats{
+
+    display:flex;
+    
+    gap:40px;
+    
+    margin-top:45px;
+    
+    }
+    
+    .about-stats h2{
+    
+    color:var(--orange);
+    
+    font-size:38px;
+    
+    margin-bottom:5px;
+    
+    }
+    
+    .about-stats span{
+    
+    color:#777;
+    
+    font-size:15px;
+    
+    text-transform:uppercase;
+    
+    letter-spacing:2px;
+    
+    }
+    /*==================================
+        FEATURES
+===================================*/
+
+.features{
+    padding:120px 8%;
+    background:#fffdf9;
+    position:relative;
+}
+
+.features .title{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.features .title span{
+    display:inline-block;
+    color:var(--orange);
+    text-transform:uppercase;
+    letter-spacing:4px;
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.features .title h1{
+    font-size:52px;
+    color:var(--brown);
+    text-transform:capitalize;
+    position:relative;
+}
+
+.features .title h1::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    bottom:-20px;
+    width:90px;
+    height:4px;
+    border-radius:20px;
+    background:var(--orange);
+}
+
+.features .row{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+    gap:35px;
+}
+
+/*=========================
+CARD
+=========================*/
+
+.features .box{
+
+    background:white;
+
+    border-radius:30px;
+
+    padding:40px 30px;
+
+    text-align:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:.45s;
+
+    box-shadow:0 18px 40px rgba(0,0,0,.08);
+
+}
+
+/* Orange top border animation */
+
+.features .box::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:6px;
+
+    background:var(--orange);
+
+    transform:scaleX(0);
+
+    transition:.5s;
+
+    transform-origin:left;
+
+}
+
+.features .box:hover::before{
+
+    transform:scaleX(1);
+
+}
+
+.features .box:hover{
+
+    transform:translateY(-15px);
+
+    box-shadow:0 30px 60px rgba(0,0,0,.15);
+
+}
+
+/*=========================
+IMAGE
+=========================*/
+
+.features .box img{
+
+    width:90px;
+
+    height:90px;
+
+    object-fit:contain;
+
+    padding:18px;
+
+    border-radius:50%;
+
+    background:#fff6ea;
+
+    transition:.5s;
+
+}
+
+.features .box:hover img{
+
+    transform:rotate(12deg) scale(1.15);
+
+    background:var(--orange);
+
+}
+
+/*=========================
+TITLE
+=========================*/
+
+.features .box h4{
+
+    margin:30px 0 20px;
+
+    font-size:24px;
+
+    color:var(--brown);
+
+}
+
+/*=========================
+TEXT
+=========================*/
+
+.features .box p{
+
+    color:#666;
+
+    line-height:1.9;
+
+    font-size:16px;
+
+}
+
+/*=========================
+NUMBER
+=========================*/
+
+.features .box span{
+
+    position:absolute;
+
+    top:25px;
+    right:25px;
+
+    font-size:70px;
+
+    font-weight:800;
+
+    color:rgba(217,119,6,.08);
+
+}
+
+/*=========================
+RESPONSIVE
+=========================*/
+
+@media(max-width:768px){
+
+.features{
+
+padding:90px 25px;
+
+}
+
+.features .title h1{
+
+font-size:36px;
+
+}
+
+}
+/*==================================
+            TEAM
+===================================*/
+
+.team{
+    padding:120px 8%;
+    background:linear-gradient(180deg,#fff8f2,#ffffff);
+}
+
+.team .title{
+    text-align:center;
+    margin-bottom:80px;
+}
+
+.team .title span{
+    color:var(--orange);
+    text-transform:uppercase;
+    letter-spacing:4px;
+    font-weight:700;
+}
+
+.team .title h1{
+    margin-top:15px;
+    font-size:52px;
+    color:var(--brown);
+    text-transform:capitalize;
+}
+
+.team .row{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:35px;
+
+}
+
+.team .box{
+
+    background:#fff;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    text-align:center;
+
+    position:relative;
+
+    padding:35px 25px;
+
+    transition:.45s;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.08);
+
+}
+
+.team .box:hover{
+
+    transform:translateY(-18px);
+
+    box-shadow:0 35px 70px rgba(0,0,0,.15);
+
+}
+
+/*========================
+PHOTO
+========================*/
+
+.team .img-box{
+
+    width:170px;
+
+    height:170px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    border:6px solid var(--orange);
+
+    transition:.5s;
+
+}
+
+.team .box:hover .img-box{
+
+    transform:scale(1.08);
+
+}
+
+.team .img-box img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+/*========================
+ROLE
+========================*/
+
+.team .box span{
+
+    display:inline-block;
+
+    margin-top:25px;
+
+    color:var(--orange);
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    font-size:14px;
+
+    font-weight:700;
+
+}
+
+/*========================
+NAME
+========================*/
+
+.team .box h4{
+
+    margin:15px 0 25px;
+
+    font-size:26px;
+
+    color:var(--brown);
+
+}
+
+/*========================
+SOCIAL
+========================*/
+
+.icons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:12px;
+
+}
+
+.icons i{
+
+    width:46px;
+
+    height:46px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:50%;
+
+    background:#ec6308;
+
+    color:var(--orange);
+
+    cursor:pointer;
+
+    transition:.4s;
+
+    font-size:18px;
+
+}
+
+.icons i:hover{
+
+    background:var(--orange);
+
+    color:white;
+
+    transform:translateY(-8px) rotate(360deg);
+
+}
+
+/*========================
+TOP RIBBON
+========================*/
+
+.team .box::before{
+
+    content:"Our Team";
+
+    position:absolute;
+
+    top:22px;
+
+    right:-40px;
+
+    width:150px;
+
+    background:var(--orange);
+
+    color:white;
+
+    text-align:center;
+
+    padding:8px;
+
+    transform:rotate(45deg);
+
+    font-size:13px;
+
+    font-weight:bold;
+
+}
+.social{
+
+    opacity:0;
+
+    transform:translateY(30px);
+
+    transition:.45s;
+
+}
+
+.team .box:hover .social{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+.team{
+
+    position:relative;
+
+}
+
+.team::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:radial-gradient(rgba(217,119,6,.05) 2px,transparent 2px);
+
+    background-size:40px 40px;
+
+    pointer-events:none;
+
+}
+/*==================================
+            GALLERY
+===================================*/
+
+.project{
+
+    padding-top:120px;
+
+    text-align:center;
+
+}
+
+.project span{
+
+    color:var(--orange);
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    font-weight:700;
+
+}
+
+.project h1{
+
+    font-size:52px;
+
+    margin-top:15px;
+
+    color:var(--brown);
+
+}
+
+/*======================*/
+
+.gallery{
+
+    width:90%;
+
+    margin:70px auto 120px;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    grid-auto-rows:280px;
+
+    gap:25px;
+
+}
+
+.large{
+
+    grid-column:span 2;
+
+    grid-row:span 2;
+
+}
+
+.gallery .item{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.08);
+
+}
+
+.gallery img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.8s;
+
+}
+
+.gallery .overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(transparent,
+    rgba(0,0,0,.82));
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    flex-direction:column;
+
+    padding:35px;
+
+    opacity:0;
+
+    transition:.45s;
+
+}
+
+.gallery .overlay h3{
+
+    color:white;
+
+    font-size:30px;
+
+    margin-bottom:10px;
+
+    transform:translateY(40px);
+
+    transition:.45s;
+
+}
+
+.gallery .overlay p{
+
+    color:#eee;
+
+    transform:translateY(40px);
+
+    transition:.55s;
+
+}
+
+.gallery .item:hover img{
+
+    transform:scale(1.15);
+
+}
+
+.gallery .item:hover .overlay{
+
+    opacity:1;
+
+}
+
+.gallery .item:hover h3,
+
+.gallery .item:hover p{
+
+    transform:translateY(0);
+
+}
+
+/*======================*/
+
+@media(max-width:992px){
+
+.gallery{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.large{
+
+grid-column:span 2;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.gallery{
+
+grid-template-columns:1fr;
+
+grid-auto-rows:260px;
+
+}
+
+.large{
+
+grid-column:span 1;
+
+grid-row:span 1;
+
+}
+
+}
+/*========================================
+            WHY CHOOSE US
+=========================================*/
+
+.ideas{
+
+    padding:130px 8%;
+
+    background:#fff8f2;
+
+}
+
+.ideas .title{
+
+    text-align:center;
+
+    margin-bottom:70px;
+
+}
+
+.ideas span{
+
+    color:var(--orange);
+
+    text-transform:uppercase;
+
+    letter-spacing:5px;
+
+    font-weight:700;
+
+}
+
+.ideas h1{
+
+    font-size:52px;
+
+    color:var(--brown);
+
+    margin-top:15px;
+
+}
+
+.idea-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:40px;
+
+}
+
+.idea-card{
+
+    background:rgb(241, 194, 39);
+
+    padding:45px;
+
+    border-radius:30px;
+
+    text-align:center;
+
+    transition:.5s;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.08);
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.idea-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:100%;
+
+    height:6px;
+
+    background:var(--orange);
+
+    transform:scaleX(0);
+
+    transition:.5s;
+
+}
+
+.idea-card:hover::before{
+
+    transform:scaleX(1);
+
+}
+
+.idea-card:hover{
+
+    transform:translateY(-18px);
+
+    box-shadow:0 30px 60px rgba(0,0,0,.15);
+
+}
+
+.idea-card .icon{
+
+    width:95px;
+
+    height:95px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    background:#fff1df;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+    transition:.5s;
+
+}
+
+.idea-card:hover .icon{
+
+    background:var(--orange);
+
+    transform:rotate(360deg);
+
+}
+
+.idea-card i{
+
+    font-size:42px;
+
+    color:var(--orange);
+
+    transition:.5s;
+
+}
+
+.idea-card:hover i{
+
+    color:white;
+
+}
+
+.idea-card h2{
+
+    margin-bottom:20px;
+
+    color:var(--brown);
+
+}
+
+.idea-card p{
+
+    color:#666;
+
+    line-height:1.9;
+
+}
+/* Container Box & Section Baseline */
+@import url('https://googleapis.com');
+
+.idea-corn {
+  background-color: #f1c73e; /* Crisp, clean slate backdrop */
+  padding: 80px 20px;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Responsive Structural Row Layout Wrapper Grid */
+.idea-corn .ro {
+  display: grid;
+  grid-template-columns: 1fr; /* Default single column for mobile browsers */
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Individual Content Detail Cards Box Elements */
+.idea-corn .bo {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  padding: 40px 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Smooth Interactive Card Hover Highlights */
+.idea-corn .bo:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border-color: #fee2e2; /* Soft red-orange tint borders on mouse interaction */
+}
+
+/* Brand-Matching Red-Orange Circle Visual Icon Anchors */
+.idea-corn .bo i {
+  background: #fff5f0; /* Soft warm tinted white highlight background */
+  color: var(--orange, #ff4500); /* Vivid accent colorway display */
+  width: 60px;
+  height: 60px;
+  border-radius: 12px; /* Smooth rounded squircle layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  flex-shrink: 0; /* Safeguards icon dimensions against squishing */
+}
+
+/* Inner Copy Text Block Wrapper Container */
+.idea-corn .deta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Card Section Heading Title Text Elements styling */
+.idea-corn .title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #0f172a; /* Dark charcoal tone text */
+  text-transform: capitalize;
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+/* Narrative Content Paragraph Descriptions Text lines formatting */
+.idea-corn .deta p {
+  font-size: 0.95rem;
+  color: #475569; /* Balanced slate grey text color */
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Responsive Adaptive Layout Boundary Breakpoint Rules */
+@media (min-width: 768px) {
+  .idea-corn .ro {
+    grid-template-columns: repeat(2, 1fr); /* Splits cards neatly into 2 columns on tablets */
+  }
+}
+
+@media (min-width: 1024px) {
+  .idea-corn .ro {
+    grid-template-columns: repeat(3, 1fr); /* Automatically snaps cleanly into 3 symmetrical grid columns on desktop panels */
+    align-items: stretch; /* Directs card heights to stretch completely equal regardless of line breaks */
+  }
+}
+
+.timeline{
+
+    padding:120px 8%;
+    
+    background:white;
+    
+    }
+    
+.timeline h2{
+    
+    text-align:center;
+    
+    font-size:50px;
+    
+    margin-bottom:80px;
+    
+    color:var(--brown);
+    
+    }
+    
+.time{
+    
+    display:flex;
+    
+    justify-content:space-between;
+    
+    position:relative;
+    
+    }
+    
+.time::before{
+    
+    content:"";
+    
+    position:absolute;
+    
+    height:5px;
+    
+    background:var(--orange);
+    
+    width:100%;
+    
+    top:45px;
+    
+    }
+    
+.year{
+    
+    position:relative;
+    
+    text-align:center;
+    
+    width:220px;
+    
+    }
+    
+.year h1{
+    
+    width:90px;
+    
+    height:90px;
+    
+    margin:auto;
+    
+    border-radius:50%;
+    
+    background:var(--orange);
+    
+    color:white;
+    
+    display:flex;
+    
+    justify-content:center;
+    
+    align-items:center;
+    
+    margin-bottom:30px;
+    
+    }
+    
+.year p{
+    
+    line-height:1.8;
+    
+    color:#666;
+    
+    }
+    /*=========================================
+        PREMIUM BAKERY SHOP
+==========================================*/
+
+:root{
+    --orange:#d97706;
+    --dark:#3b2418;
+    --cream:#fff8f2;
+    --white:#ffffff;
+    --text:#666;
+    --shadow:0 15px 40px rgba(0,0,0,.08);
+}
+
+/*=========================
+SHOP BANNER
+=========================*/
+
+.banne{
+    width:100%;
+    min-height:50vh;
+    background:linear-gradient(rgba(30,20,15,.65),rgba(30,20,15,.65)),
+    url("img/page_pic.jpg") center/cover;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:#fff;
+    padding:40px;
+}
+
+.banne h1{
+    font-size:65px;
+    margin-bottom:20px;
+    text-transform:capitalize;
+    letter-spacing:2px;
+}
+
+.banne p{
+    max-width:750px;
+    line-height:2;
+    margin-bottom:25px;
+    font-size:18px;
+}
+
+.banne a{
+    color:var(--orange);
+    text-decoration:none;
+    font-weight:700;
+}
+
+.banne span{
+    color:#fff;
+}
+
+/*=========================
+SECTION
+=========================*/
+
+
+
+/*=========================
+PRICE
+=========================*/
+
+.price{
+
+    position:absolute;
+
+    top:20px;
+
+    left:20px;
+
+    background:var(--orange);
+
+    color:#fff;
+
+    padding:8px 18px;
+
+    border-radius:40px;
+
+    font-weight:bold;
+
+    box-shadow:0 10px 20px rgba(217,119,6,.35);
+
+}
+
+/*=========================
+NAME
+=========================*/
+
+.name{
+
+    font-size:24px;
+
+    color:var(--dark);
+
+    margin:25px 0;
+
+    font-weight:700;
+
+    text-transform:capitalize;
+
+}
+
+/*=========================
+ICONS
+=========================*/
+
+.icon1{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    margin-bottom:30px;
+
+}
+
+.icon1 a,
+.icon1 button{
+
+    width:48px;
+
+    height:48px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:50%;
+
+    background:#fff3e6;
+
+    color:var(--orange);
+
+    font-size:20px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+    text-decoration:none;
+
+}
+
+.icon1 a:hover,
+.icon1 button:hover{
+
+    background:var(--orange);
+
+    color:#fff;
+
+    transform:translateY(-8px);
+
+}
+
+/*=========================
+FRESH RIBBON
+=========================*/
+
+.car::before{
+
+    content:"Fresh";
+
+    position:absolute;
+
+    top:18px;
+
+    right:-42px;
+
+    width:150px;
+
+    text-align:center;
+
+    background:#28a745;
+
+    color:white;
+
+    padding:8px;
+
+    transform:rotate(45deg);
+
+    font-size:13px;
+
+    font-weight:bold;
+
+}
+
+/*=========================
+ARROWS
+=========================*/
+
+.control{
+
+    position:absolute;
+
+    right:0;
+
+    top:0;
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+.control i{
+
+    width: 55px;;
+
+    height:55px;
+
+    background:var(--orange);
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    transition:.4s;
+
+    box-shadow:0 10px 6px rgba(217,119,6,.35);
+
+}
+
+.control i:hover{
+
+    background:#b96500;
+
+    transform:translateY(-5px);
+
+}
+
+/*=========================
+SLICK DOTS
+=========================*/
+
+.slick-dots{
+
+    bottom:-60px;
+
+}
+
+.slick-dots li button:before{
+
+    font-size:14px;
+
+    color:var(--orange);
+
+}
+
+.slick-dots li.slick-active button:before{
+
+    color:var(--orange);
+
+}
+
+/*=========================
+EMPTY
+=========================*/
+
+.empty{
+
+    width:100%;
+
+    text-align:center;
+
+    font-size:22px;
+
+    color:#777;
+
+    padding:80px;
+
+}
+
+/*=========================
+RESPONSIVE
+=========================*/
+
+@media(max-width:992px){
+
+.banne h1{
+
+font-size:50px;
+
+}
+
+.popular h2{
+
+font-size:40px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.banne{
+
+min-height:35vh;
+
+padding:30px;
+
+}
+
+.banne h1{
+
+font-size:38px;
+
+}
+
+.banne p{
+
+font-size:16px;
+
+}
+
+.popular{
+
+width:95%;
+
+}
+
+.control{
+
+position:relative;
+
+justify-content:center;
+
+margin-bottom:30px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.car img{
+
+height:220px;
+
+}
+
+.name{
+
+font-size:20px;
+
+}
+
+.price{
+
+font-size:14px;
+
+padding:6px 15px;
+
+}
+}
+
+
+.popul {
+  background-color: #f8fafc;
+  padding: 60px 20px;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Banner Area styling */
+
+
+/* Section Title decoration */
+.shop h2 {
+  font-size: 1.8rem;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+  font-weight: 700;
+  text-align: center;
+  position: relative;
+}
+
+.shop h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 45px;
+  height: 3px;
+  background-color: var(--orange);
+}
+
+/* Central View Page Container */
+.view_page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  
+}
+
+/* Side-by-Side Product Entry Card */
+.canu {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: row; /* Locks elements in row format side-by-side */
+  overflow: hidden;
+  width: 90%;
+  
+}
+
+/* Left Image Box Column */
+.canu img {
+  width: 45%; 
+  object-fit: cover;
+  background-color: #fffaf7;
+  border-right: 1px solid #f1f5f9;
+}
+
+/* Right Details Box Column */
+.detaill {
+  width: 55%; 
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Keeps pricing element safely at the top */
+}
+
+/* Prominent Visible Price Tag */
+.detaill .price {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--orange);
+  margin-bottom: 10px;
+  display: block; /* Guarantees layout rendering block rules */
+}
+
+/* Product Title Heading Text */
+.detaill .name {
+  font-size: 1.5rem;
+  color: var(--text-dark);
+  font-weight: 600;
+  margin-bottom: 16px;
+  text-transform: capitalize;
+  background-color: #e1fd52;
+}
+
+/* Description Text - Fixed strictly to 6 lines max */
+.detaill .detail {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 30px;
+  width: 80%;
+  
+  /* Text truncate line restrictions */
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+  /* Safety fallback element boundaries */
+  max-height: calc(0.95rem * 1.6 * 6);
+}
+
+/* Lower Row Action Box */
+.iicon {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto; /* Forces action tray safely to the card floor layout */
+  padding-top: 20px;
+  border-top: 1px solid #f1f5f9;
+  width: 100%;
+}
+
+/* Circular Heart Wishlist icon Button */
+.iicon button[name="add_to_wishlist"] {
+  background: #fff5f5;
+  color: #ef4444;
+  border: 1px solid #fecaca;
+  width: 44px;
+  height: 44px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.iicon button[name="add_to_wishlist"]:hover {
+  background: #fee2e2;
+  border-color: #fca5a5;
+}
+
+/* Numerical Quantity Form Control Box */
+.iicon .quantity {
+  width: 65px;
+  height: 44px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  background: #ffffff;
+  outline: none;
+}
+
+.iicon .quantity:focus {
+  border-color: var(--orange);
+}
+
+/* Red-Orange Primary Add to Cart Button */
+.iicon button[name="add_to_cart"] {
+  background: var(--orange);
+  color: #ffffff;
+  border: none;
+  padding: 0 24px;
+  height: 44px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease
+   /* Aligns cart component to the absolute right side */
+}
+
+.iicon button[name="add_to_cart"]:hover {
+  background: var(--orange-hover);
+}
+
+/* Mobile Responsive Adaptive Media Switcher */
+@media (max-width: 680px) {
+  .canu {
+    flex-direction: column; /* Stack details below image on tiny phone viewports */
+    max-width: 400px;
+  }
+  .canu img, .detaill {
+    width: 100%;
+  }
+  .canu img {
+    height: 250px;
+    border-right: none;
+    border-bottom: 1px solid #f1f5f9;
+  }
+}
+
+
+
+/* Core Section Layout */
+.popullar {
+    padding: 60px 4%;
+    background-color: #fcfcfc;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.popullar h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-line: var(--bakery-accent);
+}
+
+/* Custom Navigation Layout Box */
+.controll {
+    position: absolute;
+    top: 60px;
+    right: 4%;
+    display: flex;
+    gap: 12px;
+    z-index: 10;
+}
+
+.controll i {
+    width: 40px;
+    height: 40px;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    color: #333333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.controll i:hover {
+    background: #ffbe76;
+    color: #ffffff;
+    border-color: #ffbe76;
+}
+
+/* Main Sliding Container Track */
+.popular-slider-track {
+    display: flex !important; /* Forces products into a horizontal row line */
+    overflow-x: auto;         /* Allows manual swiping/scrolling */
+    gap: 20px;
+    padding: 15px 5px;
+    scroll-behavior: smooth;
+}
+
+/* Clean up scrollbar visual clutter */
+.popular-slider-track::-webkit-scrollbar {
+    display: none;
+}
+.popular-slider-track {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Individual Product Cards Structure */
+.carr {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #f0f0f0;
+    transition: transform 0.2s linear;
+    flex: 0 0 280px; /* Fixes card widths side-by-side in the row */
+    box-sizing: border-box;
+}
+
+.carr:hover {
+    transform: translateY(-5px);
+}
+
+/* Slider Images Panel */
+.carr img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    background: #fafafa;
+}
+
+/* Pricing Style */
+.carr .price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #2ed573;
+    margin-bottom: 4px;
+}
+
+/* Product Title Headers */
+.carr .name {
+    font-size: 1rem;
+    color: #333333;
+    font-weight: 500;
+    margin-bottom: 15px;
+    height: 24px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+/* Options Action Container */
+.carr .icocn {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    border-top: 1px solid #f5f5f5;
+    padding-top: 12px;
+}
+
+/* Control Buttons & View Links */
+.carr .icocn a, 
+.carr .icocn button {
+    width: 38px;
+    height: 38px;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    color: #fa4c2d;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    padding: 0;
+}
+
+.carr .icocn a:hover { background: #3498db; color: #ffffff; }
+.carr .icocn button[name="add_to_wishlist"]:hover { background: #ff4757; color: #ffffff; }
+.carr .icocn button[name="add_to_cart"]:hover { background: #2ed573; color: #ffffff; }
+
+/* ==========================================================================
+  
+
+/* ==========================================================================
+   5. INDIVIDUAL BAKERY PRODUCT GRID ENTRY CARDS (.car)
+   ========================================================================== */
+/* ==========================================================================
+   1. CORE GLOBAL STYLING CONFIGURATIONS
+   ========================================================================== */
+   :root {
+    --bakery-gold: #ffbe76;        /* Primary accent branding tone */
+    --bakery-dark-gold: #f0a34f;   /* Hover focus states */
+    --charcoal: #2c3e50;           /* High contrast title values */
+    --slate-gray: #5e6a75;         /* Soft descriptions */
+    --milk-white: #ffffff;         /* Card surfaces */
+    --frost: #fdfdfd;              /* Main page background */
+    --cookie-crumbs: #f1f2f6;     /* Borders and lines */
+    --soft-blur: 0 10px 30px rgba(0, 0, 0, 0.04);
+    --crisp-blur: 0 15px 35px rgba(240, 163, 79, 0.15);
+}
+
+/* ==========================================================================
+   3. SHOP BEST SELLER LAYOUT SECTION (.shop)
+   ========================================================================== */
+.shop {
+    padding: 80px 6%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.shop h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    text-transform: capitalize;
+    color: var(--charcoal);
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+/* Underline accent strip placed directly beneath layout header text */
+.shop h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 65px;
+    height: 4px;
+    background-color: var(--bakery-gold);
+    border-radius: 4px;
+}
+
+/* ==========================================================================
+   4. MULTI-COLUMN RESPONSIVE PRODUCT CARD GRID WRAPPER (.box-bottle)
+   ========================================================================== */
+.box-bottle {
+    display: grid;
+    /* Auto-calculates columns: minimum width 280px, expanding to fill blank gaps */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 40px 30px; /* 40px layout spaces vertically, 30px space horizontally */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   5. FABULOUS PRODUCT CARD FORMS ELEMENTS (.brar)
+   ========================================================================== */
+.brar {
+    background: var(--milk-white);
+    border: 1px solid var(--cookie-crumbs);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: var(--soft-blur);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+                border-color 0.4s ease;
+}
+
+/* Micro-interaction Hover Elevate Effects */
+.brar:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--crisp-blur);
+    border-color: var(--bakery-gold);
+}
+
+/* Product Card Images */
+.brar img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover; /* Keeps item images clean and un-stretched */
+    border-radius: 14px;
+    background-color: #fafafa;
+    margin-bottom: 20px;
+    transition: transform 0.4s ease;
+}
+
+.brar:hover img {
+    transform: scale(1.03); /* Subtle image zoom animation layer */
+}
+
+/* Product Pricing Metric */
+.brar .price {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #2ed573; /* Organic green fresh color badge */
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+/* Fallback auto-prefix helper indicator for loose digits out of DB */
+.brar .price::before {
+    content: '$';
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-right: 2px;
+}
+
+/* Product Identity Heading Text */
+.brar .name {
+    font-size: 1.15rem;
+    color: var(--charcoal);
+    font-weight: 700;
+    margin-bottom: 24px;
+    height: 26px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+/* ==========================================================================
+   6. INTERACTION HOVER BUTTON ACTIONS ROW CONTAINERS (.icon)
+   ========================================================================== */
+.brar .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    border-top: 1px solid var(--cookie-crumbs);
+    padding-top: 20px;
+    margin-top: auto; /* Locks button shelf flawlessly to baseline */
+}
+
+/* Base Uniform Rule Sets For Links and Active Click Triggers */
+.brar .icon a, 
+.brar .icon button {
+    width: 46px;
+    height: 46px;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    color: var(--charcoal);
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.15rem;
+    padding: 0;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* View Eye Anchor Focus Shifts */
+.brar .icon a:hover {
+    background: var(--charcoal);
+    color: #ffffff;
+    border-color: var(--charcoal);
+    transform: translateY(-2px);
+}
+
+/* Wishlist Heart Target Mapping (#only2) */
+.brar .icon button#only2:hover {
+    background: #ff4757; /* Vibrant warm pinkish-red */
+    color: #ffffff;
+    border-color: #ff4757;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 71, 87, 0.3);
+}
+
+/* Shopping Cart Target Mapping (#only) */
+.brar .icon button#only:hover {
+    background: #2ed573; /* Rich shopping cart checkout emerald */
+    color: #ffffff;
+    border-color: #2ed573;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(46, 213, 115, 0.3);
+}
+
+/* Fallback Empty Database State Notification Typography */
+.empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--slate-gray);
+    font-size: 1.2rem;
+    grid-column: 1 / -1; /* Forces notice to break across whole empty grid row line */
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   7. SCREEN ADAPTABILITY MEDIA QUERIES BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 768px) {
+    .banne h1 {
+        font-size: 2.4rem;
+    }
+    .banne p {
+        font-size: 1rem;
+    }
+    .shop {
+        padding: 60px 4%;
+    }
+    .shop h2 {
+        font-size: 1.8rem;
+        margin-bottom: 40px;
+    }
+    .box-bottle {
+        gap: 25px 20px; /* Pulls elements closer together on mobile view */
+    }
+}
+/* Main Summary Container Box */
+.wishlist_total {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 500px;
+    margin: 40px auto;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+  }
+  
+  /* Typography Text Line */
+  .wishlist_total p {
+    font-size: 1.25rem;
+    color: #334155;
+    font-weight: 500;
+    text-transform: capitalize;
+    margin: 0;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Highlighted Price String */
+  .wishlist_total p span {
+    color: var(--orange, #ff4500); /* Fallback to vibrant orange if var is missing */
+    font-weight: 700;
+    font-size: 1.6rem;
+    margin-left: 8px;
+  }
+  
+  /* General Link Buttons styling */
+  .wishlist_total a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  
+  /* Secondary Action: Continue Shopping Button */
+  .wishlist_total a[href="shop.php"] {
+    background-color: transparent;
+    color: #475569;
+    border: 2px solid #cbd5e1;
+  }
+  
+  .wishlist_total a[href="shop.php"]:hover {
+    background-color: #f8fafc;
+    color: #1e293b;
+    border-color: #94a3b8;
+  }
+  
+  /* Danger Action: Clear All Wishlist Items Button */
+  .wishlist_total .btn2 {
+    background-color: #ef4444; /* Alert red */
+    color: #ffffff;
+    border: none;
+  }
+  
+  .wishlist_total .btn2:hover:not(.disabled) {
+    background-color: #dc2626;
+  }
+  
+  /* Visual Anchor pseudo-element fix for empty text string */
+  .wishlist_total .btn2::after {
+    content: "Delete All Items"; /* Fills the text since the anchor tags are empty */
+  }
+  
+  /* Disabled Logic Modifier State */
+  .wishlist_total .btn2.disabled {
+    background-color: #cbd5e1;
+    color: #94a3b8;
+    cursor: not-allowed;
+    pointer-events: none; /* Disables clicking/triggering user prompts */
+    opacity: 0.7;
+  }
+  
+  /* Responsive screen adaptation boundary layout */
+  @media (min-width: 640px) {
+    .wishlist_total {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 850px;
+      padding: 24px 35px;
+    }
+  
+    .wishlist_total p {
+      flex: 1 1 100%;
+      text-align: left;
+      margin-bottom: 10px;
+    }
+  
+    .wishlist_total a {
+      width: auto; /* Shrinks links side-by-side on wide screens */
+    }
+  }
+  
+/* Contact Page Structural Additions */
+@import url('https://googleapis.com');
+
+:root {
+  --orange: #ff4500; 
+  --orange-hover: #e03d00;
+  --text-dark: #0f172a;
+  --text-muted: #475569;
+  --bg-light: #f8fafc;
+}
+
+/* Section Wrapper Layout Grid */
+.contact-section {
+  background-color: var(--bg-light);
+  padding: 60px 20px;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+}
+
+/* Form Container Card Structure */
+.cont {
+  background: #fae847;
+  border-radius: 12px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  width: 100%;
+  max-width: 600px;
+  padding: 40px;
+}
+
+/* Form Section Header Title Styling */
+.cont .shop h2 {
+  margin-bottom: 30px;
+  font-size: 1.6rem;
+}
+
+/* Individual Form Component Layout Blocks */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+/* Input Fields Global Element Controls */
+.cont .box {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: var(--text-dark);
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Interactive Focused Form Input Fields Border Elements */
+.cont .box:focus {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 3px rgba(255, 69, 0, 0.15);
+}
+
+/* Textarea Layout Dimensions Lock */
+.cont textarea.box {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Primary Form Action Submission Button Component */
+.cont .btn {
+  background-color: var(--orange);
+  color: #ffffff;
+  border: none;
+  width: 100%;
+  padding: 14px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: background-color 0.2s ease;
+  margin-top: 10px;
+}
+
+.cont .btn:hover {
+  background-color: var(--orange-hover);
+}
+
+/* Responsive Structural Boundary Viewport Adapters */
+@media (max-width: 480px) {
+  .cont {
+    padding: 25px 20px;
+  }
+  
+  .cont .shop h2 {
+    font-size: 1.4rem;
+  }
+}
+/* Contact Grid Flex Column Block */
+.contact-info-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 40px auto; /* Adds clean structural space before the input form opens */
+    font-family: 'Inter', sans-serif;
+  }
+  
+  /* Individual Content Display Cards Base layout styles */
+  .info-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px 25px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  /* Red-Orange Circle Visual Anchors For Icons */
+  .info-icon {
+    background: #fff5f0; /* Soft warm orange background tint */
+    color: var(--orange, #ff4500);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0; /* Prevents the circle from squishing on tight panels */
+  }
+  
+  /* Card Information Text Layout Settings */
+  .info-details h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 4px 0;
+  }
+  
+  .info-details p {
+    font-size: 0.95rem;
+    color: #475569;
+    margin: 0;
+    line-height: 1.4;
+  }
+  
+  /* Hyperlinked Interactive Click Lines Decoration settings */
+  .info-details a {
+    color: #475569;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .info-details a:hover {
+    color: var(--orange, #ff4500);
+  }
+  
+  /* Screen Adapters: Arranges cards side-by-side on larger screens */
+  @media (min-width: 768px) {
+    .contact-info-grid {
+      flex-direction: row;
+      max-width: 1000px;
+    }
+    
+    .info-card {
+      flex: 1; /* Makes all 3 cards stretch to share layout space completely equally */
+    }
+  }
+  /* Orders Component Core Structure layout rules */
+@import url('https://googleapis.com');
+
+:root {
+  --orange: #ff4500; 
+  --text-dark: #0f172a;
+  --text-muted: #475569;
+  --bg-light: #f8fafc;
+}
+
+.orders-section {
+  background-color: var(--bg-light);
+  padding: 60px 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Responsive Card Distribution Display Deck */
+.orders-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Individual Order Wrapper Card Box block settings */
+.order-card {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Component Bar formatting */
+.order-header {
+  background: #fff5f0; /* Soft warm orange-tint background block */
+  padding: 15px 25px;
+  border-bottom: 1px solid #fee2e2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.order-date {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Dynamic State Badge Micro styling layout structures */
+.status-badge {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 30px;
+  letter-spacing: 0.5px;
+}
+
+/* Standard default status background modifiers mapping presets */
+.status-badge.pending {
+  background-color: #fef3c7; /* Amber amber tag */
+  color: #b45309;
+}
+
+.status-badge.completed {
+  background-color: #d1fae5; /* Emerald green tag */
+  color: #065f46;
+}
+
+/* Card Information Body container layout dimensions settings */
+.order-body {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.order-detail-row {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed #f1f5f9; /* Subtle structure alignment guidelines */
+  padding-bottom: 6px;
+}
+
+.order-detail-row strong {
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+/* Line divider component element rules */
+.order-divider {
+  height: 1px;
+  background-color: #e2e8f0;
+  margin: 10px 0;
+}
+
+/* Product list structural mapping layouts formatting rules */
+.order-products {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+.product-string-list {
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 0.9rem;
+  background: #f1f5f9;
+  padding: 10px 15px;
+  border-radius: 6px;
+  width: 100%;
+}
+
+/* Footer Financial Calculation Block summary elements styling formatting */
+.order-footer {
+  margin-top: auto; /* Fastens component elements block directly to the floor layout baseline edge */
+  padding: 20px 25px;
+  background: #ffffff;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.total-amount {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--orange); /* Distinct visible signature highlight colorway pricing */
+}
+
+/* Multi-column grid distribution breakpoint engine triggers settings */
+@media (min-width: 768px) {
+  .orders-container {
+    grid-template-columns: repeat(2, 1fr); /* Splits cards neatly side-by-side into a dual layout grid */
+  }
+}
+
+@media (min-width: 1024px) {
+  .orders-container {
+    grid-template-columns: repeat(2, 1fr); /* Maintains elegant card sizing constraints */
+  }
+}
+

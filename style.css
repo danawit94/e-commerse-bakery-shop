@@ -1,0 +1,1625 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Segoe UI', sans-serif; /* Cleaner modern typography */
+}
+
+:root {
+    /* Sweet pastry color palette */
+    --orange: #fcc927;          /* Honey Gold */
+    --cream: #fffcf4;           /* Soft Pastry Dough Cream */
+    --chocolate: #3d2516;       /* Rich Dark Chocolate */
+    --berry: #d63447;           /* Strawberry/Berry Pink Accent */
+    --box-shadow: 0 10px 30px rgba(61, 37, 22, 0.15); /* Soft chocolate depth shadow */
+}
+
+a {
+    text-decoration: none;
+    color: var(--berry);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--chocolate);
+}
+
+ul {
+    list-style: none;
+}
+
+/* Reusable Button Utility */
+.btn {
+    padding: 0.8rem 2.5em;
+    text-transform: uppercase;
+    background: var(--chocolate);
+    color: #fff;
+    border-radius: 30px; /* Rounded pill shapes look softer/friendlier */
+    font-weight: 600;
+    letter-spacing: 1px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: var(--berry);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(214, 52, 71, 0.4);
+}
+
+/* Page Section Typography */
+.title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.title h1 {
+    font-size: 3rem;
+    color: var(--chocolate);
+}
+
+.title span {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 2;
+    color: var(--orange);
+}
+
+/* Background image borders (Pastry dividers) */
+
+
+.line { margin-top: -3.6rem; margin-bottom: 10rem; }
+.line3 { margin-top: -3.5rem; margin-bottom: 7rem; }
+
+/* Alert Messages (Error/Success) */
+.message {
+    text-align: center;
+    margin: 0 auto 1.5rem auto;
+    width: 100%;
+    max-width: 450px;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--chocolate);
+    color: var(--cream);
+    font-weight: 500;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.4s ease-out;
+}
+
+.message i {
+    cursor: pointer;
+    font-size: 1.3rem;
+    color: var(--orange);
+    transition: transform 0.2s ease;
+}
+
+.message i:hover {
+    transform: scale(1.2);
+}
+
+/* Form Inputs & Fields */
+input, button, textarea {
+    outline: none;
+    border: 2px solid #e1d3c1; /* Soft crust-colored borders */
+    background: #fff;
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+    border-radius: 8px;
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+    color: var(--chocolate);
+    transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--orange);
+    box-shadow: 0 0 0 4px rgba(252, 201, 39, 0.2);
+}
+
+/* Full Screen Form Container */
+.form-container {
+    background: linear-gradient(135deg, var(--orange), #fcd860);
+    width: 100%;
+    min-height: 100vh;
+    padding: 4rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background floating pastries decorators */
+.form-container::before {
+    content: '';
+    position: absolute;
+    background: url('img/bek.jpg');
+    top: 5%;
+    left: 2%;
+    width: 200px;
+    height: 400px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1;
+    opacity: 0.85;
+}
+
+.form-container::after {
+    content: '';
+    position: absolute;
+    background: url('img/choclate_donut.jpg');
+    bottom: 5%;
+    right: 2%;
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1;
+    opacity: 0.85;
+}
+
+/* Registration Form Card */
+.form-container form {
+    width: 100%;
+    max-width: 500px; /* Perfect desktop boundary size */
+    margin: 0 auto;
+    background: rgba(255, 252, 244, 0.95); /* Semi-transparent Pastry Cream */
+   
+    box-shadow: var(--box-shadow);
+    padding: 3rem 2.5rem;
+    position: relative;
+    z-index: 5;
+    border-radius: 20px; /* Elegant rounded card */
+    border: 3px solid #fff;
+    text-align: center;
+}
+
+.form-container h1 {
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    font-size: 2.2rem;
+    color: var(--chocolate);
+    letter-spacing: 1px;
+    font-weight: 800;
+}
+
+.form-container form label {
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--chocolate);
+    display: block;
+    text-align: left;
+    margin-bottom: 0.4rem;
+}
+
+/* Submit Button Custom Styling */
+.form-container .btn {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1rem;
+    font-size: 1.1rem;
+}
+
+.form-container p {
+    margin-top: 1.5rem;
+    color: #6e5d53;
+    font-size: 0.95rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Scaling for Tablets/Phones */
+@media (max-width: 768px) {
+    .form-container::before, .form-container::after {
+        display: none; /* Hide background side items on narrow mobile layouts */
+    }
+    .form-container form {
+        padding: 2rem 1.5rem;
+    }
+}
+/* Unique layout decorators specifically for the login page view */
+.form-container.login-page::before {
+    background: url('img/—Pngtree—french bread basket bakery food_14698351.png'); /* Different decorative pastry element */
+    top: 10%;
+    left: 3%;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background-size: cover;
+}
+
+.form-container.login-page::after {
+    background: url('img/—Pngtree—a decadent multi-layered chocolate cake_20747329.png'); /* Swapped sweet accent layout element */
+    bottom: 8%;
+    right: 3%;
+    width: 210px;
+    height: 210px;
+    border-radius: 20px;
+    background-size: cover;
+}
+/* ==============================
+   GOOGLE FONT
+============================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    text-decoration:none;
+    list-style:none;
+}
+
+body{
+    background:#fffaf0;
+    overflow-x:hidden;
+}
+
+/*==============================
+HEADER
+==============================*/
+
+.header{
+    width:100%;
+    background:linear-gradient(90deg,#ffc400fb,#f7a342,orange);
+    position:sticky;
+    top:0;
+    left:0;
+    z-index:1000;
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+    margin: 0;
+}
+
+.flex{
+    max-width:1400px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 8%;
+}
+
+.logo img{
+    width:109px;
+    height:80px;
+    border-radius:50%;
+    border:4px solid white;
+    transition:.4s;
+}
+
+.logo img:hover{
+    transform:rotate(360deg);
+}
+
+/*==============================
+NAVBAR
+==============================*/
+
+.navbar{
+    display:flex;
+    gap:30px;
+}
+
+.navbar a{
+    color:white;
+    font-weight:600;
+    font-size:18px;
+    text-transform:capitalize;
+    transition:.3s;
+    position:relative;
+}
+
+.navbar a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:0%;
+    height:3px;
+    background:#fff;
+    transition:.4s;
+}
+
+.navbar a:hover::after{
+    width:100%;
+}
+
+.navbar a:hover{
+    color:#fff9c4;
+}
+
+/*==============================
+ICONS
+==============================*/
+
+.icons{
+    display:flex;
+    gap:20px;
+}
+
+.icons i{
+    font-size:30px;
+    color:rgb(251, 144, 5);
+    cursor:pointer;
+    transition:.3s;
+}
+
+.icons i:hover{
+    transform:scale(1.2);
+}
+
+/*==============================
+USER BOX
+==============================*/
+
+.user-box{
+    position:absolute;
+    right:30px;
+    top:90px;
+    background:white;
+    width:270px;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 20px 50px rgba(0,0,0,.2);
+    display:none;
+}
+
+.user-box.active{
+    display:block;
+}
+
+.user-box p{
+    margin:12px 0;
+    color:#444;
+    font-weight:500;
+}
+
+.user-box span{
+    color:#ff8800;
+    font-weight:bold;
+}
+
+.logout-btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    background:#ff8800;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+    transition:.4s;
+}
+
+.logout-btn:hover{
+    background:#ffb300;
+}
+
+/*==============================
+BANNER
+==============================*/
+
+.banner{
+    min-height:90vh;
+    background:linear-gradient(rgba(251, 255, 0, 0.894),
+
+    rgba(243, 155, 31, 0.901)),
+    url("img/pastry2.jpg") center/cover;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:60px 10%;
+}
+
+.detail{
+    background:rgba(255,255,255,.18);
+    backdrop-filter:blur(15px);
+    padding:50px;
+    border-radius:25px;
+    color:white;
+    max-width:900px;
+    animation:fadeUp 1s ease;
+    margin-bottom: 0;
+}
+
+.detail h1{
+    font-size:55px;
+    margin-bottom:20px;
+    text-transform:uppercase;
+}
+
+.detail p{
+    line-height:2;
+    font-size:18px;
+}
+
+/*==============================
+LINE
+==============================*/
+
+
+
+/*==============================
+ANIMATION
+==============================*/
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(60px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/*==============================
+MOBILE
+==============================*/
+
+#menu-btn{
+    display:none;
+}
+
+@media(max-width:900px){
+
+.navbar{
+    position:absolute;
+    top:100%;
+    left:0;
+    width:100%;
+    background:white;
+    display:none;
+    flex-direction:column;
+    box-shadow:0 15px 25px rgba(0,0,0,.2);
+}
+
+.navbar.active{
+    display:flex;
+}
+
+.navbar a{
+    color:#ff8800;
+    padding:20px;
+    border-bottom:1px solid #eee;
+}
+
+.navbar a:hover{
+    background:#fff8e1;
+}
+
+#menu-btn{
+    display:block;
+}
+
+.detail{
+    padding:30px;
+}
+
+.detail h1{
+    font-size:38px;
+}
+
+.detail p{
+    font-size:16px;
+}
+
+}
+
+@media(max-width:500px){
+
+.logo img{
+    width:55px;
+    height:55px;
+}
+
+.icons i{
+    font-size:26px;
+}
+
+.detail h1{
+    font-size:28px;
+}
+
+.detail p{
+    font-size:15px;
+    line-height:1.8;
+}
+
+.user-box{
+    width:90%;
+    right:5%;
+    
+}
+
+}
+
+
+/*admin product......*/
+/* ==========================================================================
+   Admin Product Manager Display Panel Rules
+   ========================================================================== */
+   
+/* Clean Top Line Spacer Block */
+
+
+/* Centralizing Form Section Layout Outer Boundary Wrapper */
+.add-products-from-container {
+    padding: 3rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 150px);
+    background-color: var(--cream);
+}
+
+/* Beautiful Pastry Cream Upload Form Card */
+.add-products-from-container form {
+    background: #ffffff;
+    border: 2px solid #ebdccb;
+    padding: 3rem 2.5rem;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 20px;
+    box-shadow: var(--box-shadow);
+    text-align: left;
+    position: relative;
+}
+
+/* Decorative Title header simulation using styling mechanics */
+.add-products-from-container form::before {
+    content: 'Add New Bakery Asset';
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--chocolate);
+    margin-bottom: 2rem;
+}
+
+/* Field Group Wrapping Enclosures */
+.add-products-from-container .input-filed {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Crust Brown Structural Typography Labels */
+.add-products-from-container .input-filed label {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--chocolate-light);
+    letter-spacing: 0.5px;
+}
+
+/* Safe Input Area Enclosures */
+.add-products-from-container .input-filed input[type="text"],
+.add-products-from-container .input-filed textarea {
+    width: 100%;
+    background: var(--cream);
+    border: 2px solid #ebdccb;
+    padding: 0.9rem 1.2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--chocolate);
+    outline: none;
+}
+
+/* Fixed dimensional area handling rules for text boxes */
+.add-products-from-container .input-filed textarea {
+    height: 150px;
+    resize: none;
+    line-height: 1.6;
+}
+
+/* Modern Minimalist Native File Input Adjuster Row */
+.add-products-from-container .input-filed input[type="file"] {
+    background: #fff;
+    border: 2px dashed #cbd5e1; /* Decorative drop-zone appearance */
+    padding: 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--chocolate-light);
+}
+
+.add-products-from-container .input-filed input[type="file"]:hover {
+    border-color: var(--orange);
+    background: var(--cream);
+}
+
+/* Focus and active highlight states simulating glowing elements */
+.add-products-from-container .input-filed input[type="text"]:focus,
+.add-products-from-container .input-filed textarea:focus {
+    border-color: var(--orange);
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(252, 201, 39, 0.2);
+}
+
+/* Unified Wide Custom Submit Buttons overrides */
+.add-products-from-container form .btn {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1rem;
+    font-size: 1.05rem;
+}
+
+/* Mobile responsive padding balancing adjustments */
+@media (max-width: 480px) {
+    .add-products-from-container {
+        padding: 1.5rem 1rem;
+    }
+    .add-products-from-container form {
+        padding: 2rem 1.5rem;
+    }
+    .add-products-from-container form::before {
+        font-size: 1.3rem;
+    }
+}
+/* you know*/
+
+.show-products {
+    padding: 4rem 2rem;
+    background-color:#fcc927; /* --cream fallback */
+    text-align: center;
+}
+
+.show-products .section-title {
+    font-size: 2.2rem;
+    color: #3d2516; /* --chocolate fallback */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+    font-weight: 800;
+
+}
+
+/* Master Grid Configuration Layout Row */
+.show-products .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: stretch; /* FORCES ALL CARDS TO TAKE UP EXACTLY THE SAME VERTICAL HEIGHT */
+}
+
+/* Individual Pastry Product Card Grid Cell Grid Wrapper */
+.show-products .box-container .boxx {
+    background: #ffffff;
+    border: 2px solid #ebdccb;
+    border-radius: 20px;
+    padding: 1.8rem;
+    box-shadow: 0 10px 25px rgba(61, 37, 22, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* FORCES BUTTONS TO STICK PERFECTLY TO THE BOTTOM ALIGNED */
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.show-products .box-container .boxx:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(61, 37, 22, 0.15);
+    border-color: #fcc927; /* --orange fallback */
+}
+
+/* Dynamic Uniform Image Sizer Wrapper */
+.show-products .boxx .img-wrapper {
+    width: 100%;
+    height: 220px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1.2rem;
+    border: 1px solid #ebdccb;
+}
+
+.show-products .boxx .product-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Forces automatic scaling & smart framing cropping bounds */
+}
+.show-products::before{
+    background-image:url(image/berry.jpg) ;
+    top:-100px;
+
+}
+
+/* Content Element Decorations */
+.show-products .boxx .content-wrapper {
+    flex-grow: 1; /* Allows text section to fill space evenly across columns */
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.show-products .boxx .product-name {
+    font-size: 1.4rem;
+    color: #3d2516;
+    text-transform: capitalize;
+    font-weight: 700;
+    margin: 0;
+}
+
+.show-products .boxx .price-tag {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #705849;
+    margin-bottom: 0.5rem;
+}
+
+.show-products .boxx .price-tag span {
+    color: #d63447; /* --berry fallback */
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+/* Native Collapsible Summary Block Decorations */
+.show-products .boxx .product-desc {
+    background: #fffcf4;
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    color: #593e2b;
+    border: 1px solid #ebdccb;
+    margin-bottom: 1.5rem;
+}
+
+.show-products .boxx .product-desc summary {
+    font-weight: 700;
+    cursor: pointer;
+    color: #3d2516;
+    outline: none;
+    user-select: none;
+}
+
+.show-products .boxx .product-desc p {
+    margin-top: 0.6rem;
+    line-height: 1.6;
+}
+
+/* Button Layout Action Section */
+.show-products .boxx .actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto; /* Pushes the button array flat to the floor boundary layout line */
+}
+
+.show-products .boxx .actions a {
+    flex: 1;
+    border: 1;
+    
+    border-radius: 2%;
+    text-align: center;
+    text-decoration: none;
+    padding: 0.8rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 30px;
+    display: inline;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.show-products .boxx .actions .edit-btn {
+    background-color: #fcc927;
+    color: #3d2516;
+    box-sizing: content-box;
+}
+
+.show-products .boxx .actions .edit-btn:hover {
+    background-color: #3d2516;
+    color: #ffffff;
+    box-sizing: content-box;
+}
+
+.show-products .boxx .actions .delete-btn {
+    background-color: #fce8ea;
+    color: #d63447;
+    box-sizing: content-box;
+}
+
+.show-products .boxx .actions .delete-btn:hover {
+    background-color: #d63447;
+    color: #ffffff;
+    box-sizing: content-box;
+}
+
+.show-products .empty {
+    grid-column: 1 / -1;
+    background: #fff;
+    border: 2px dashed #ebdccb;
+    padding: 4rem 2rem;
+    border-radius: 20px;
+}
+.show-products img{
+    width: 90%;
+    height: 300px;
+}
+
+    
+
+ 
+
+.linepop{
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-decoration-color: #fcc927;
+    justify-content: center;
+    background-image: url(style.css);
+    background-repeat: none;
+    width: 100%;
+
+
+}
+/* update*/
+/* Update Form Container Wrapper */
+.update-container {
+    max-width: 600px;
+    margin: 3rem auto;
+    background-color: #fffaf0; /* Warm Pastry Cream Background */
+    border: 2px dashed #3d2516; /* Chocolate Accent border */
+    border-radius: 15px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 25px rgba(61, 37, 22, 0.1);
+}
+
+/* Form Layout Design */
+.update-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+/* Product Image Preview Formatting */
+.update-container form img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 50%; /* Rounded like a pastry cake */
+    border: 4px solid #fcc927; /* Honey Gold trim */
+    margin: 0 auto 1rem auto;
+    display: block;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Text Inputs, Numbers, and Textareas */
+.update-container form input[type="text"],
+.update-container form input[type="number"],
+.update-container form textarea {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 1px solid #d3c2b0;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #3d2516; /* Deep Chocolate text */
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Input Focus States */
+.update-container form input[type="text"]:focus,
+.update-container form input[type="number"]:focus,
+.update-container form textarea:focus {
+    border-color: #3d2516;
+    box-shadow: 0 0 0 3px rgba(252, 201, 39, 0.3);
+}
+
+/* Textarea Customization */
+.update-container form textarea {
+    resize: vertical;
+    min-height: 120px;
+    font-family: inherit;
+}
+
+/* File Input Wrapper Styling */
+.update-container form input[type="file"] {
+    background-color: #ffffff;
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 1px dashed #3d2516;
+    cursor: pointer;
+    color: #555;
+}
+
+/* Action Button Formatting */
+.update-container form .edit,
+.update-container form .option-btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+/* Update Button (Gold Honey theme) */
+.update-container form .edit {
+    background-color: #fcc927;
+    color: #3d2516;
+    margin-top: 0.5rem;
+}
+
+.update-container form .edit:hover {
+    background-color: #3d2516;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Cancel Button (Soft cream/pink fallback) */
+.update-container form .option-btn {
+    background-color: #fce8ea;
+    color: #d63447;
+}
+
+.update-container form .option-btn:hover {
+    background-color: #d63447;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+/* Core Section Layout Wrapper */
+.message-container {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Luxury Calligraphy Section Heading */
+.message-container .title {
+    font-size: 2.5rem;
+    color: #3d2516; /* Rich Chocolate Tone */
+    text-align: center;
+    text-transform: capitalize;
+    font-weight: 800;
+    margin-bottom: 3rem;
+    position: relative;
+    letter-spacing: 0.5px;
+}
+
+/* Elegant hand-drawn squiggly accent line beneath the header */
+.message-container .title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #fcc927; /* Golden Honey */
+    border-radius: 10px;
+    margin: 0.8rem auto 0 auto;
+}
+
+/* Grid Matrix Container */
+.message-container .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2.5rem;
+    align-items: stretch;
+}
+
+/* Boutique Card Styling */
+.message-container .boxx {
+    background: #ffffff;
+    border: 1px solid #f2e7dc; /* Soft Cream Edge */
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(61, 37, 22, 0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Card Hover Accent Float effect */
+.message-container .boxx:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(61, 37, 22, 0.12);
+    border-color: #fcc927;
+}
+
+/* Left side accent ribbon color block inside card on hover */
+.message-container .boxx::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: #fcc927;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.message-container .boxx:hover::before {
+    opacity: 1;
+}
+
+/* Message Header Info Area */
+.message-container .boxx h4 {
+    font-size: 1.25rem;
+    color: #3d2516;
+    margin: 0 0 0.4rem 0;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+/* Interactive Metadata Label */
+.message-container .price-tag {
+    font-size: 0.9rem;
+    color: #8c7361; /* Soft Cocoa */
+    margin: 0 0 1.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.message-container .price-tag span {
+    color: #3d2516;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: rgba(252, 201, 39, 0.5);
+}
+
+/* Message Content Box Panel */
+.message-container .product-desc {
+    background: #fffcf7; /* Warm Custard/Cream Hue */
+    border: 1px solid #fcf3e8;
+    border-radius: 12px;
+    padding: 1.2rem;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+}
+
+.message-container .product-desc summary {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #8c7361;
+    margin-bottom: 0.6rem;
+    cursor: pointer;
+    list-style: none; /* Removes default arrow marker */
+}
+.message-container .product-desc summary::-webkit-details-marker {
+    display: none; /* Safe removal for Chrome/Safari compatibility layers */
+}
+
+.message-container .product-desc p {
+    font-size: 0.98rem;
+    color: #594235;
+    line-height: 1.7;
+    margin: 0;
+    font-style: italic; /* Makes actual customer text stand out elegant */
+}
+
+/* Footer Control Layout Area */
+.message-container .actions {
+    display: flex;
+    gap: 1rem;
+    border-top: 1px dashed #ebdccb;
+    padding-top: 1.5rem;
+    margin-top: auto;
+}
+
+/* Base button properties layout architecture */
+.message-container .actions a {
+    flex: 1;
+    padding: 0.85rem 1.2rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Premium Reply Button State */
+.message-container .actions a.edit {
+    background: #fcc927;
+    color: #3d2516;
+    box-shadow: 0 4px 12px rgba(252, 201, 39, 0.2);
+}
+.message-container .actions a.edit:hover {
+    background: #3d2516;
+    color: #ffffff;
+    box-shadow: 0 6px 15px rgba(61, 37, 22, 0.25);
+    transform: translateY(-2px);
+}
+
+/* Premium Trash/Delete Button State */
+.message-container .actions a.delete {
+    background: #fff5f5;
+    color: #d63447;
+    border: 1px solid #fde2e2;
+}
+.message-container .actions a.delete:hover {
+    background: #d63447;
+    color: #ffffff;
+    border-color: #d63447;
+    box-shadow: 0 6px 15px rgba(214, 52, 71, 0.25);
+    transform: translateY(-2px);
+}
+
+/* Empty Dashboard State Card Layout */
+.message-container .empty {
+    grid-column: 1 / -1;
+    background: #fffcf7;
+    border: 2px dashed #ebdccb;
+    padding: 5rem 2rem;
+    border-radius: 16px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #8c7361;
+    font-weight: 600;
+}
+/* Container Workspace Section with Ambient Pastry Background Imagery Layer */
+.users-container {
+    max-width: 1200px;
+    margin: 4rem  auto ;
+    margin-top: 0;
+    padding: 3rem 2rem;
+    position: relative;
+    /* Soft-focused aesthetic styling layer simulating a high-end cake boutique */
+    background-image: linear-gradient(135deg, rgba(255, 250, 240, 0.95), rgba(252, 201, 39, 0.05)), url('img/pastry.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    border-radius: 24px;
+    box-shadow: inset 0 0 100px rgba(61, 37, 22, 0.08), 0 20px 50px rgba(0,0,0,0.05);
+}
+
+/* Calligraphy Title Styling Header Layout Rules */
+.users-container .title {
+    font-size: 2.6rem;
+    color: #3d2516;
+    text-align: center;
+    font-weight: 800;
+    margin-bottom: 4rem;
+    text-shadow: 2px 4px 10px rgba(61, 37, 22, 0.1);
+}
+
+.users-container .title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 5px;
+    background: #fcc927;
+    border-radius: 10px;
+    margin: 0.8rem auto 0 auto;
+    box-shadow: 0 2px 5px rgba(252, 201, 39, 0.4);
+}
+
+/* Fluid Flex Grid Controller Layout Framework */
+.users-container .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
+}
+
+/* Floating Isometric Volumetric 3D User Card Frame */
+.users-container .user-card-3d {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    padding: 2.5rem 2rem 1.5rem 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    /* Complex 3D lighting shadows simulating depth off the display surface */
+    box-shadow: 
+        0 5px 15px rgba(61, 37, 22, 0.05),
+        0 15px 35px rgba(61, 37, 22, 0.08),
+        inset 0 1px 2px rgba(255, 255, 255, 0.8);
+        
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Interactive 3D Pop Out Trigger Rule on Hover */
+.users-container .user-card-3d:hover {
+    transform: perspective(1000px) rotateX(4deg) rotateY(-2deg) translateY(-8px) translateZ(10px);
+    box-shadow: 
+        0 20px 40px rgba(61, 37, 22, 0.15),
+        0 30px 70px rgba(61, 37, 22, 0.12);
+    border-color: rgba(252, 201, 39, 0.4);
+}
+
+/* 3D Dynamic Backlighting Bubble Element Inside Card Grouping */
+.users-container .user-card-3d .glass-sphere {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 70px;
+    height: 70px;
+    background: radial-gradient(circle at 30% 30%, rgba(252, 201, 39, 0.4), rgba(252, 201, 39, 0.05));
+    border-radius: 50%;
+    z-index: 1;
+    pointer-events: none;
+    transition: transform 0.6s ease;
+}
+.users-container .user-card-3d:hover .glass-sphere {
+    transform: scale(1.3) translate(-10px, 10px);
+}
+
+/* Internal Presentation Core Alignment Layers */
+.users-container .card-inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+/* User Profiler 3D Circular Shield Graphics */
+.users-container .user-avatar {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #ffffff, #fff2cc);
+    border: 3px solid #fcc927;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    color: #3d2516;
+    box-shadow: 0 8px 20px rgba(252, 201, 39, 0.25);
+}
+
+.users-container .user-name {
+    font-size: 1.4rem;
+    color: #3d2516;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+/* Account Info Block Custom Alignment Rows */
+.users-container .metadata-block {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(61, 37, 22, 0.05);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+.users-container .user-email,
+.users-container .user-id-tag {
+    font-size: 0.95rem;
+    color: #594235;
+    margin: 0.4rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.users-container .user-email i { color: #fcc927; }
+.users-container .user-id-tag i { color: #8c7361; }
+
+.users-container .user-email span {
+    font-weight: 600;
+    word-break: break-all;
+}
+
+/* Volumetric Authorization Status Badge Styling */
+.users-container .role-badge {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* Chocolate Gold Theme for Admin Statuses */
+.users-container .role-admin {
+    background: #3d2516;
+    color: #fcc927;
+    border: 1px solid #fcc927;
+}
+
+/* Creamy Honey Tone for Normal Store Accounts */
+.users-container .role-user {
+    background: #fffcf4;
+    color: #8c7361;
+    border: 1px solid #ebdccb;
+}
+
+/* Control Execution Border Actions Bar Floor Line */
+.users-container .card-actions-3d {
+    margin-top: 1.5rem;
+    border-top: 1px dashed rgba(61, 37, 22, 0.1);
+    padding-top: 1.2rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* Clean Blocky 3D Trigger System Button Layout Profile */
+.users-container .delete-btn-3d {
+    width: 100%;
+    padding: 0.8rem;
+    background: #fff0f1;
+    border: 1px solid #fcdbde;
+    color: #d63447;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.users-container .delete-btn-3d:hover {
+    background: #d63447;
+    border-color: #d63447;
+    color: #ffffff;
+    box-shadow: 0 6px 15px rgba(214, 52, 71, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Empty State Fallback Dashboard Notice Box */
+.users-container .empty-3d {
+    grid-column: 1 / -1;
+    background: rgba(255, 255, 255, 0.6);
+    border: 2px dashed #ebdccb;
+    padding: 4rem 2rem;
+    border-radius: 16px;
+    text-align: center;
+    color: #8c7361;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   ADMIN ORDERS DASHBOARD STYLES (3D BOUTIQUE THEME)
+   ========================================================================== */
+   .line2 { 
+    width: 100%; 
+    height: 120px; 
+     /* Put your main image back */
+    background-size: calc(100% - 300px) 100%; /* Shrinks main image to leave room for the 280px chef image */
+    background-repeat: no-repeat; 
+    margin-bottom: 2rem; 
+    position: relative; 
+    display: block; /* Ensures the container renders fully */
+  }
+  
+  .line2::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0; 
+    width: 280px; 
+    height: 220px; /* Match the height of .line2 so it doesn't overflow */
+    background-image: url(img/chef.jpg); 
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .linepop{
+    background-image:url('img/yellow2.jpg') ;
+    
+    width: 100%;
+    height:120px;
+  }
+  .linepo{
+   ;
+    
+}
+.linep{
+    background-image:url('img/vec2.jpg') ;
+    background-repeat: no-repeat;
+    width: 100%;
+    height:100px;
+   
+        
+}
+
+  
+   .orders-container { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    margin-bottom: 4rem ;
+    padding: 3rem 2rem; 
+    position: relative; 
+    background-image: linear-gradient(135deg, rgba(255,250,240,0.95), rgba(252,201,39,0.05)), url('img/page_pic.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
+    border-radius: 24px; 
+    box-shadow: inset 0 0 100px rgba(61,37,22,0.08), 0 20px 50px rgba(0,0,0,0.05); 
+}
+
+.orders-container .title { 
+    font-size: 2.6rem; 
+    color: #3d2516; 
+    text-align: center; 
+    font-weight: 800; 
+    margin-bottom: 4rem; 
+    text-shadow: 2px 4px 10px rgba(61, 37, 22, 0.1); 
+    position: relative; 
+}
+
+.orders-container .title::after { 
+    content: ''; 
+    display: block; 
+    width: 60px; 
+    height: 5px; 
+    background: #fcc927; 
+    border-radius: 10px; 
+    margin: 0.8rem auto 0 auto; 
+    box-shadow: 0 2px 5px rgba(252, 201, 39, 0.4); 
+}
+
+.orders-container .box-container { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); 
+    gap: 3rem; 
+}
+
+.orders-container .order-card-3d { 
+    background: rgba(255, 255, 255, 0.85); 
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px); 
+    border: 1px solid rgba(255, 255, 255, 0.6); 
+    border-radius: 20px; 
+    padding: 2rem; 
+    position: relative; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    box-shadow: 0 5px 15px rgba(61, 37, 22, 0.05), 0 15px 35px rgba(61, 37, 22, 0.08); 
+    transform: perspective(1000px); 
+    transition: all 0.4s ease; 
+}
+
+.orders-container .order-card-3d:hover { 
+    transform: perspective(1000px) translateY(-8px) rotateX(2deg); 
+    box-shadow: 0 20px 40px rgba(61, 37, 22, 0.15), 0 30px 70px rgba(61, 37, 22, 0.12); 
+    border-color: rgba(252, 201, 39, 0.4); 
+}
+
+.orders-container .metadata-block { 
+    background: rgba(255, 255, 255, 0.6); 
+    border: 1px solid rgba(61, 37, 22, 0.05); 
+    border-radius: 12px; 
+    padding: 1.2rem; 
+    margin-bottom: 1.5rem; 
+    font-size: 0.95rem; 
+    color: #594235; 
+    line-height: 1.6; 
+}
+
+.orders-container .metadata-block p { 
+    margin: 0.5rem 0; 
+    display: flex; 
+    align-items: flex-start; 
+    gap: 0.6rem; 
+}
+
+.orders-container .metadata-block i { 
+    color: #fcc927; 
+    margin-top: 2px; 
+}
+
+.orders-container .metadata-block span { 
+    font-weight: 600; 
+    color: #3d2516; 
+}
+
+.orders-container .products-list { 
+    background: #fffcf4; 
+    border: 1px dashed #ebdccb; 
+    padding: 1rem; 
+    border-radius: 10px; 
+    font-style: italic; 
+    color: #705849; 
+    margin-bottom: 1.5rem; 
+}
+
+.orders-container .status-form { 
+    display: flex; 
+    gap: 0.8rem; 
+    margin-bottom: 1rem; 
+}
+
+.orders-container .status-dropdown { 
+    flex: 1; 
+    padding: 0.6rem; 
+    border-radius: 8px; 
+    border: 1px solid #d3c2b0; 
+    background: #ffffff; 
+    color: #3d2516; 
+    font-weight: 600; 
+    outline: none; 
+}
+
+.orders-container .update-btn { 
+    background: #fcc927; 
+    color: #3d2516; 
+    border: none; 
+    padding: 0.6rem 1rem; 
+    border-radius: 8px; 
+    font-weight: 700; 
+    cursor: pointer; 
+    transition: background 0.2s; 
+}
+
+.orders-container .update-btn:hover { 
+    background: #3d2516; 
+    color: #ffffff; 
+}
+
+.orders-container .delete-btn-3d { 
+    width: 100%; 
+    padding: 0.8rem; 
+    background: #fff0f1; 
+    border: 1px solid #fcdbde; 
+    color: #d63447; 
+    font-size: 0.85rem; 
+    font-weight: 700; 
+    text-transform: uppercase; 
+    text-decoration: none; 
+    border-radius: 10px; 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 0.5rem; 
+    transition: all 0.2s ease-in-out; 
+}
+
+.orders-container .delete-btn-3d:hover { 
+    background: #d63447; 
+    color: #ffffff; 
+    box-shadow: 0 6px 15px rgba(214, 52, 71, 0.3); 
+}
+
+
+
+
